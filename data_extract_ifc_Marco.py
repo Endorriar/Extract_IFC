@@ -23,10 +23,12 @@ export_lst = []
 
 print('Start: Starte Grunddateien einlesen...')
 
-source_path = input('Bitte Name der IFC Datei eingeben inkl. Dateiendung.')
+source_path = ('./SABA/SABA_SpezTB.ifc')
 ifc_file = ifcopenshell.open(source_path)
 
-xls_file = ('./Elementplan_Config.xlsx')
+xls_file = ('./SABA/Elementplan_Config.xlsx')
+
+exp_path = './SABA/export_datei_ifc.xlsx'
 
 s_data_category = pd.read_excel(xls_file, sheet_name='Objektkatalog')
 s_data_attributes = pd.read_excel(xls_file, sheet_name='Attributsliste')
@@ -101,7 +103,6 @@ for _c in conf_lst:
 
  ### STEP 3  
 
-exp_path = './export_datei_ifc.xlsx'
 pd.DataFrame([]).to_excel(exp_path)
 
  # export of extracted data
